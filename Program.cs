@@ -26,6 +26,7 @@ namespace heist
                 Console.WriteLine("What is your courage factor?");
                 courage = decimal.Parse(Console.ReadLine());
                 Heister heister = new Heister(name, skill, courage);
+                heisterList.Add(heister);
             }
 
             foreach(Heister heister in heisterList){
