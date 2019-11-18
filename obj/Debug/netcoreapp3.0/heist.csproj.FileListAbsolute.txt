@@ -1,0 +1,11 @@
+c:\Users\James\workspace\csharp\heist\bin\Debug\netcoreapp3.0\heist.exe
+C:\Users\James\workspace\csharp\heist\bin\Debug\netcoreapp3.0\heist.deps.json
+C:\Users\James\workspace\csharp\heist\bin\Debug\netcoreapp3.0\heist.runtimeconfig.json
+C:\Users\James\workspace\csharp\heist\bin\Debug\netcoreapp3.0\heist.runtimeconfig.dev.json
+c:\Users\James\workspace\csharp\heist\bin\Debug\netcoreapp3.0\heist.dll
+c:\Users\James\workspace\csharp\heist\bin\Debug\netcoreapp3.0\heist.pdb
+c:\Users\James\workspace\csharp\heist\obj\Debug\netcoreapp3.0\heist.csprojAssemblyReference.cache
+c:\Users\James\workspace\csharp\heist\obj\Debug\netcoreapp3.0\heist.AssemblyInfoInputs.cache
+c:\Users\James\workspace\csharp\heist\obj\Debug\netcoreapp3.0\heist.AssemblyInfo.cs
+c:\Users\James\workspace\csharp\heist\obj\Debug\netcoreapp3.0\heist.dll
+c:\Users\James\workspace\csharp\heist\obj\Debug\netcoreapp3.0\heist.pdb
