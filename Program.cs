@@ -7,12 +7,19 @@ namespace heist
     {
         static void Main(string[] args)
         {
-            List<Heister> heisterList = new List<Heister>();
+            Console.WriteLine("Crime.Net welcomes you!");
+
+            int trialNumber = -1;
+            int wins = 0;
+            int losses = 0;
 
             //Bank info
-
+            Random luckValue = new Random();
             int bankDifficulty = 101;
-            int teamSkillNumber = 0; 
+            int difficultyWithLuck = 0;
+            int teamSkillNumber = 0;
+
+            List<Heister> heisterList = new List<Heister>();
 
             Console.WriteLine("Crime.Net welcomes you!");
 
@@ -33,11 +40,13 @@ namespace heist
                 Console.WriteLine("What is your skill level?");
                 skillString = Console.ReadLine();
 
-                try{
+                try
+                {
                     skillLevel = int.Parse(skillString);
                 }
 
-                catch(Exception ex){
+                catch (Exception ex)
+                {
 
                     Console.WriteLine($"{skillString} is not a valid skill. Using the default of 10.");
                     skillLevel = 10;
@@ -46,42 +55,75 @@ namespace heist
                 Console.WriteLine("What is your courage factor?");
                 courageString = Console.ReadLine();
 
-                try{
-                    courageFactor= decimal.Parse(courageString);
+                try
+                {
+                    courageFactor = decimal.Parse(courageString);
                 }
 
-                catch(Exception ex){
+                catch (Exception ex)
+                {
 
                     Console.WriteLine($"{courageString} is not a valid courage value. Using the default of 1.0.");
                     courageFactor = 1.0M;
                 }
-                
+
                 Heister heister = new Heister(name, skillLevel, courageFactor);
                 heisterList.Add(heister);
             }
 
-            while(bankDifficulty > 100 || bankDifficulty < 0){
+            while (bankDifficulty > 100 || bankDifficulty < 0)
+            {
                 Console.WriteLine("How difficult is the bank?");
 
-                try {
+                try
+                {
                     bankDifficulty = int.Parse(Console.ReadLine());
                 }
-                catch (Exception ex){
-                   Console.WriteLine("Something went wrong. Try again."); 
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Something went wrong. Try again.");
                 }
             }
 
-            foreach(Heister heister in heisterList){
+            while (trialNumber <= 0)
+            {
+                Console.WriteLine("How many trials will you perform.");
+
+                try
+                {
+                    trialNumber = int.Parse(Console.ReadLine());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Something went wrong. Try again.");
+                }
+
+                if (trialNumber == 0)
+                {
+                    Console.WriteLine("Please enter a number more than 0.");
+                }
+            }
+
+            foreach (Heister heister in heisterList)
+            {
                 teamSkillNumber += heister.GetSkillLevel();
             }
 
-            if(teamSkillNumber > bankDifficulty){
-                Console.WriteLine("Well done! We're rich!"); 
+            Console.WriteLine($"The heisters' power is {teamSkillNumber} and the bank's difficulty is {bankDifficulty}");
+
+            for (int i = 0; i < trialNumber; i++)
+            {
+                difficultyWithLuck = bankDifficulty + luckValue.Next(-10, 10);
+                if (teamSkillNumber > difficultyWithLuck)
+                {   
+                    wins++;
+                }
+                else{
+                    losses++;
+                }
             }
 
-            else{
-                Console.WriteLine("You've been caught! This wasn't part of my plans!");
-            }
+             Console.WriteLine($"You robbed {wins} banks successfully, but you were apprehended {losses} times.");
         }
     }
 }
