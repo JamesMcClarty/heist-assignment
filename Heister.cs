@@ -17,6 +17,10 @@ namespace heist{
         public void Display(){
             Console.WriteLine($"Name: {name} Skill Level: {skillLevel} Courage Factor: {courageFactor}");
         }
+
+        public int GetSkillLevel(){
+            return skillLevel;
+        }
         
     }
 }
