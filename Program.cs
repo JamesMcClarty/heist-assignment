@@ -9,6 +9,11 @@ namespace heist
         {
             List<Heister> heisterList = new List<Heister>();
 
+            //Bank info
+
+            int bankDifficulty = 101;
+            int teamSkillNumber = 0; 
+
             Console.WriteLine("Crime.Net welcomes you!");
 
             while (heisterList.Count < 4)
@@ -55,10 +60,28 @@ namespace heist
                 heisterList.Add(heister);
             }
 
-            foreach(Heister heister in heisterList){
-                heister.Display();
+            while(bankDifficulty > 100 || bankDifficulty < 0){
+                Console.WriteLine("How difficult is the bank?");
+
+                try {
+                    bankDifficulty = int.Parse(Console.ReadLine());
+                }
+                catch (Exception ex){
+                   Console.WriteLine("Something went wrong. Try again."); 
+                }
             }
 
+            foreach(Heister heister in heisterList){
+                teamSkillNumber += heister.GetSkillLevel();
+            }
+
+            if(teamSkillNumber > bankDifficulty){
+                Console.WriteLine("Well done! We're rich!"); 
+            }
+
+            else{
+                Console.WriteLine("You've been caught! This wasn't part of my plans!");
+            }
         }
     }
 }
